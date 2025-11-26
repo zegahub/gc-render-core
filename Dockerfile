@@ -4,6 +4,12 @@ WORKDIR /app
 
 COPY . /app
 
-EXPOSE 8000
+RUN pip install --no-cache-dir fastapi "uvicorn[standard]" pydantic
 
-CMD ["python3", "-m", "http.server", "8000"]
+ENV PORT=10000
+
+CMD ["uvicorn", "app.app:app", "--host", "0.0.0.0", "--port", "8000"]
+
+
+
+
