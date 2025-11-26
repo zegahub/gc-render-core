@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: gc-render-core
+    env: python
+    buildCommand: "pip install --no-cache-dir fastapi uvicorn[standard] pydantic"
+    startCommand: "uvicorn app:app --host 0.0.0.0 --port 10000"
+    envVars:
+      - key: PORT
+        value: 10000
